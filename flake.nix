@@ -38,8 +38,6 @@
             '';
       };
  
-      termdown = "${pkgs.termdown}/bin/termdown";
-      mplayer = "${pkgs.mplayer}/bin/mplayer";
       mySound = builtins.path {
         path = ./bells/old-car-engine_daniel_simion.mp3;
         name = "mySound";
@@ -47,7 +45,7 @@
 
       timer = 
         pkgs.writeScriptBin "start" ''
-           ${termdown} --font doh 25m && ${mplayer} ${mySound} 
+           ${pkgs.termdown}/bin/termdown --font doh 25m && ${pkgs.mplayer}/bin/mplayer ${mySound} 
           '';
 
     in {
