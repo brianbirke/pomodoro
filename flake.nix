@@ -38,11 +38,17 @@
         export PS1="termdown) \h:\w]\$\[\033[0m\] "
           '';
       };
-  
+ 
+      termdown = "${pkgs.termdown}/bin/termdown";
+      mplayer = "${pkgs.mplayer}/bin/mplayer";
+      mySound = builtins.path {
+        path = ./bells/old-car-engine_daniel_simion.mp3;
+        name = "mySound";
+      };
 
       timer = 
         pkgs.writeScriptBin "start" ''
-          termdown -f doh 10s && mplayer ./bells/old-car-engine_daniel_simion.mp3
+           ${termdown} --font doh 10s && ${mplayer} ${mySound} 
           '';
 
 
