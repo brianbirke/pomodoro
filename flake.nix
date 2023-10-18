@@ -55,7 +55,7 @@
         program = "${timer}/bin/start";
       };
 
-      apps.timer.start = {
+      apps.start = {
         type = "app";
         program = "${timer}/bin/start";
       };
