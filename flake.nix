@@ -29,14 +29,13 @@
 
 
      shelly = pkgs.mkShell {
-
-      buildInputs = [
-       pkgs.mplayer 
-       pkgs.termdown 
-      ];
-      shellHook = ''
-        export PS1="termdown) \h:\w]\$\[\033[0m\] "
-          '';
+        buildInputs = [
+         pkgs.mplayer 
+         pkgs.termdown 
+        ];
+        shellHook = ''
+          export PS1="pomodoro) \h:\w]\$\[\033[0m\] "
+            '';
       };
  
       termdown = "${pkgs.termdown}/bin/termdown";
@@ -48,9 +47,8 @@
 
       timer = 
         pkgs.writeScriptBin "start" ''
-           ${termdown} --font doh 10s && ${mplayer} ${mySound} 
+           ${termdown} --font doh 25m && ${mplayer} ${mySound} 
           '';
-
 
     in {
     
