@@ -43,9 +43,12 @@
         name = "mySound";
       };
 
+      termdown = "${pkgs.termdown}/bin/termdown";
+      mplayer = "${pkgs.mplayer}/bin/mplayer";
+
       timer = 
         pkgs.writeScriptBin "start" ''
-           ${pkgs.termdown}/bin/termdown --font doh 25m && ${pkgs.mplayer}/bin/mplayer ${mySound} 
+           ${termdown} --font doh 25m && ${mplayer} ${mySound} 
           '';
 
     in {
